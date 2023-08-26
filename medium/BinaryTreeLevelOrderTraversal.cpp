@@ -13,10 +13,10 @@
 class Solution {
 public:
 
-    vector<vector<int>> preOrder(TreeNode* root, int level, vector<vector<int>>& levels)
+    void preOrder(const TreeNode* root, int level, vector<vector<int>>& levels)
     {
         if (root == nullptr)
-            return levels;
+            return;
 
         if (level == levels.size())
             levels.push_back({});
@@ -24,11 +24,11 @@ public:
         levels[level].emplace_back(root->val);
         preOrder(root->left, level + 1, levels);
         preOrder(root->right, level + 1, levels);
-        return levels;
     }
 
     vector<vector<int>> levelOrder(TreeNode* root) {
         vector<vector<int>> levels;
-        return preOrder(root, 0, levels);
+        preOrder(root, 0, levels);
+        return levels;
     }
 };

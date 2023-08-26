@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    void traverse(TreeNode* root, vector<int>& result)
+    void traverse(const TreeNode* root, vector<int>& result)
     {
         if (root == nullptr)
             return;
