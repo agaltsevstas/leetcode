@@ -1,4 +1,1 @@
-# This file is used to ignore files which are generated
-# ----------------------------------------------------------------------------
-*.DS_Store
-easy/*.DS_Store
+https://www.interviewbit.com/courses/programming/time-complexity

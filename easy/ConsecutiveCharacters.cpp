@@ -1,3 +1,6 @@
+// Time: O(n)
+// Memory: O(1)
+
 class Solution {
 public:
     int maxPower(string s) {

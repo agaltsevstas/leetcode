@@ -9,6 +9,10 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+// Time: O(n)
+// Memory: O(h), где h - высота дерева, в худшем случае h = n, поэтому можно сказать что Memory: O(n)
+
 class Solution {
 public:
 
@@ -21,7 +25,6 @@ public:
         traverse(root->left, result);
         traverse(root->right, result);
     }
-    
     vector<int> preorderTraversal(TreeNode* root) {
         vector<int> result;
         traverse(root, result);

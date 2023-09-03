@@ -10,6 +10,9 @@
  * };
  */
 
+// Time: O(n)
+// Memory: O(n)
+
 class Solution {
 public:
 

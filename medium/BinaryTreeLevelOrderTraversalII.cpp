@@ -10,6 +10,9 @@
  * };
  */
 
+// Time: O(n)
+// Memory: O(h), где h - высота дерева. В худшем случае h = n
+
 class Solution {
 public:
     void preOrder(const TreeNode* root, int level, vector<vector<int>>& levels)

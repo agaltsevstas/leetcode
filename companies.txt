@@ -1,1 +1,22 @@
-Yandex: BinaryTreeLevelOrderTraversal, SymmetricTree, SameTree, PathSum, PathSumIII, Binary TreeLevelOrderTraversalII
+Yandex: 
+BinaryTreeLevelOrderTraversal
+SymmetricTree
+SameTree
+PathSum
+PathSumIII
+Binary 
+TreeLevelOrderTraversalII
+SubarraySumEqualsK
+PathSumIII (пока решения нет)
+StringCompression (популярная)
+
+Ozon:
+MonotonicArray
+
+Сбер:
+ContainsDuplicate
+Fibonacci Number
+
+Cбермаркет:
+StringCompression (популярная)
+ConsecutiveCharacters

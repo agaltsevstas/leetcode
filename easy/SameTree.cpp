@@ -9,6 +9,10 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+// Time: O(n)
+// Memory: O(h), где h - высота дерева. В худшем случае h = n
+
 class Solution {
 public:
     bool isSameTree(TreeNode* left, TreeNode* right) {
