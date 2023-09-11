@@ -9,9 +9,19 @@ TreeLevelOrderTraversalII
 SubarraySumEqualsK
 PathSumIII (пока решения нет)
 StringCompression (популярная)
+Squares of a Sorted Array
+Move Zeroes
+Valid Palindrome
+Intersection Of Sorted Arrays
+Container With Most Water
+One edit distance
+
+Дзен:
+Find the Distance Value Between Two Arrays
 
 Ozon:
 MonotonicArray
+Move Zeroes 
 
 Сбер:
 ContainsDuplicate
@@ -20,3 +30,10 @@ Fibonacci Number
 Cбермаркет:
 StringCompression (популярная)
 ConsecutiveCharacters
+
+Avito:
+Top K Frequent Elements
+Merge Sorted Array
+
+VK:
+Replace Spaces
