@@ -1,4 +1,4 @@
-// Time: O(logn)
+// Time: O(nlogn)
 // Memory: O(2n) -> O(n)
 
 // Долгая сортировка
@@ -34,17 +34,18 @@ int Solution::solve(vector<vector<int>> &nums)
     
     std::sort(points.begin(), points.end(), [](const auto& first, const auto& second)
     {
-        if (first.front() > second.front())
+        // Обязательно: условие должно возвращать true, иначе false. Если поменять местами, то будет ошибка
+        if (first.front() < second.front())
         {
-            return false;
+            return true;
         }
         // Случай: [1, -1] и [1, 1]
-        else if (first.front() == second.front() && first.back() > second.back())
+        else if (first.front() == second.front() && first.back() < second.back())
         {
-            return false;
+            return true;
         }
         
-        return true;
+        return false;
     });
     
     int max = 0, sum = 0;

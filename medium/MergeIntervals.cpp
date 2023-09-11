@@ -1,4 +1,4 @@
-// Time: O(logn)
+// Time: O(nlogn)
 // Memory: O(n)
 
 class Solution {
