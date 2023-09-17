@@ -6,8 +6,7 @@ class Solution {
 public:
     vector<vector<string>> groupAnagrams(vector<string>& strs)
     {
-        // a-z - 97-122 в ASCII
-        constexpr int key_size = 123;
+        constexpr int key_size = 26; // a-z - 97-122 в ASCII
         std::map<std::array<int, key_size>, std::vector<std::string>> strs_map;
 
         for (int i = 0, I = (int)strs.size(); i < I; ++i)
@@ -15,7 +14,7 @@ public:
             std::array<int, key_size> key {};
             for (int j = 0, J = strs[i].size(); j < J; ++j)
             {
-                key[(int)strs[i][j]] += 1;
+                key[(int)strs[i][j] - 97] += 1;
             }
 
             strs_map[key].emplace_back(strs[i]);
