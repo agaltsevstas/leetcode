@@ -1,4 +1,4 @@
-// Time: O(n)
+// Time: O(max(n,m)), где n - длина первого листа, m - ддлина второго листа
 // Memory: O(1)
 
 /**
@@ -13,12 +13,8 @@
  */
 class Solution {
 public:
-    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        if (!list1)
-            return list2;
-        else if (!list2)
-            return list1;
-
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2)
+    {
         ListNode* begin = new ListNode(0);
         ListNode* curr = begin;
         ListNode* list1_curr = list1;
