@@ -1,39 +1,67 @@
-Yandex: 
+Yandex:
+Binary
 BinaryTreeLevelOrderTraversal
+ContainerWithMostWater
+CountPrimes (senior)
+GroupAnagrams (подготовка)
+IntersectionOfSortedArrays
+FindAllAnagramsInAString
+LinkedListCycle (подготовка)
+LongestRepeatingCharacterReplacement (подготовка)
+MergeIntervals
+MeetingRooms
+MoveZeroes
+OneEditDistance
+PathSum
+PathSumIII (пока решения нет)
+ReverseInteger
+ReverseLinkedList (подготовка)
 SymmetricTree
 SameTree
-PathSum
-PathSumIII
-Binary 
-TreeLevelOrderTraversalII
-SubarraySumEqualsK
-PathSumIII (пока решения нет)
+SingleNumber
+SquaresOfASortedArray
 StringCompression (популярная)
-Squares of a Sorted Array
-Move Zeroes
-Valid Palindrome
-Intersection Of Sorted Arrays
-Container With Most Water
-One edit distance
+SubarraySumEqualsK
+TreeLevelOrderTraversalII
+ValidAnagram (подготовка)
+ValidPalindrome
 
 Дзен:
-Find the Distance Value Between Two Arrays
+FindTheDistanceValueBetweenTwoArrays
+LongestSubarrayOf1'sAfterDeletingOneElement
 
 Ozon:
 MonotonicArray
-Move Zeroes 
+MoveZeroes 
 
 Сбер:
 ContainsDuplicate
-Fibonacci Number
+FibonacciNumber
+
+Сбердевайсы:
+MergeTwoSortedLists
+RemoveNthNodeFromEndOfList
 
 Cбермаркет:
-StringCompression (популярная)
 ConsecutiveCharacters
+StringCompression (популярная)
 
 Avito:
-Top K Frequent Elements
-Merge Sorted Array
+top-k наиболее частых
+top-k максимальных
+смержить 2 массива по возрастанию
+MergeSortedArray (популярная)
+TopKFrequentElements (популярная)
 
 VK:
-Replace Spaces
+PointsAndSegments
+ReplaceSpaces
+
+JetBrains:
+ReverseInteger
+
+Huawei:
+SingleNumber
+
+Intel:
+SingleNumber

@@ -11,10 +11,10 @@ public:
 
         for (int i = 0, I = (int)strs.size(); i < I; ++i)
         {
-            std::array<int, key_size> key {};
+            std::array<int, key_size> key {}; // Обязательно инициализация! Иначе мусор
             for (int j = 0, J = strs[i].size(); j < J; ++j)
             {
-                key[(int)strs[i][j] - 97] += 1;
+                key[(int)strs[i][j] - 'a'] += 1;
             }
 
             strs_map[key].emplace_back(strs[i]);
