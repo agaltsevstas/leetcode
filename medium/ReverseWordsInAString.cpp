@@ -1,39 +1,43 @@
-// Time: O(n^2)
-// Memory: O(n)
+// Time: O(n)
+// Memory: O(1)
 
 class Solution {
 public:
-    string reverseWords(string s)
+    std::string reverseWords(std::string s)
     {
-        const int s_size = (int)s.size();
-        std::string result;
-        bool isSpace = false;
-        for (int i = 0, j = 0; i < s_size; ++i)
+        std::stack<string> stack;
+        std::string str;
+        for (int i = 0, I = s.size(); i < I; ++i)
         {
-            if (s[i] == ' ')
+            if (s[i] != ' ')
             {
-                if (isSpace)
-                {
-                    auto result_size = result.size();
-                    result.resize(result.size() + i + 1);
-                    for (int z = j; z <= i; ++z)
-                    {
-                        result[result_size + z - 1] = s[z];
-                    }
-
-                    isSpace = false;
-                }
+                str += s[i];
             }
-            else
+            else if (!str.empty())
             {
-                if (!isSpace)
-                {
-                    isSpace = true;
-                    j = i;
-                }
+                stack.push(str);
+                str.clear();
             }
         }
+        
+        if (!str.empty())
+        {
+            stack.push(str);
+            str.clear();
+        }
 
-        return result;
+        if (stack.empty())
+            return s;
+
+        while (!stack.empty())
+        {
+            str += stack.top() + " ";
+            stack.pop();
+        }
+
+        if (str.back() == ' ')
+            str.pop_back();
+
+        return str;
     }
 };
