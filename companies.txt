@@ -3,6 +3,7 @@ Binary
 BinaryTreeLevelOrderTraversal
 ContainerWithMostWater
 CountPrimes (senior)
+DailyTemperatures
 GroupAnagrams (подготовка)
 IntersectionOfSortedArrays
 FindAllAnagramsInAString
@@ -20,11 +21,15 @@ SymmetricTree
 SameTree
 SingleNumber
 SquaresOfASortedArray
-StringCompression (популярная)
+StringCompression (популярная, перерешать)
 SubarraySumEqualsK
 TreeLevelOrderTraversalII
 ValidAnagram (подготовка)
 ValidPalindrome
+
+Yandex Фудтех И Маркет:
+ReplaceSpaces
+LongestSubstringWithoutRepeatinCharacters
 
 Дзен:
 FindTheDistanceValueBetweenTwoArrays
@@ -47,11 +52,9 @@ ConsecutiveCharacters
 StringCompression (популярная)
 
 Avito:
-top-k наиболее частых
-top-k максимальных
-смержить 2 массива по возрастанию
 MergeSortedArray (популярная)
 TopKFrequentElements (популярная)
+SumOfSubarrayMinimums (Сложная, пока решения нет)
 
 VK:
 PointsAndSegments
