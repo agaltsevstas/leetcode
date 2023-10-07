@@ -9,26 +9,26 @@ using namespace std;
 
 std::vector<int> CountSort(std::vector<int>& nums)
 {
-    auto size = nums.size();
-    for (int i = 0; i < size; ++i)
+    int offset = 5 * std::pow(10, 4);
+    std::vector<int> nums_map(offset * 2 + 1, 0);
+    for (const auto& num: nums)
     {
-        bool isSwap = false;
-        for (int j = 0; j < size - i - 1; ++j)
+        nums_map[num + offset] += 1;
+    }
+
+    std::vector<int> result;
+    for (size_t i = 0, I = nums_map.size(); i < I; ++i)
+    {
+        if (nums_map[i] >= 1)
         {
-            if (nums[j] > nums[j + 1])
+            for (int j = 0; j < nums_map[i]; ++j)
             {
-                std::swap(nums[j], nums[j + 1]);
-                isSwap = true;
+                result.emplace_back(i - offset);
             }
         }
-        
-        if (!isSwap)
-        {
-            break;
-        }
     }
-    
-    return nums;
+
+    return result;
 }
 
 int main(int argc, const char * argv[])
