@@ -1,5 +1,5 @@
 Yandex:
-Binary
+BinarySearch
 BinaryTreeLevelOrderTraversal
 ContainerWithMostWater
 CountPrimes (senior)
@@ -7,6 +7,8 @@ DailyTemperatures
 GroupAnagrams (подготовка)
 IntersectionOfSortedArrays
 FindAllAnagramsInAString
+FindFirstAndLastPositionOfElementInSortedArray
+FindKClosestElements
 LinkedListCycle (подготовка)
 LongestRepeatingCharacterReplacement (подготовка)
 MergeIntervals
@@ -26,6 +28,7 @@ SubarraySumEqualsK
 TreeLevelOrderTraversalII
 ValidAnagram (подготовка)
 ValidPalindrome
+Любят спрашивать: Бинарный поиск (структура данных)
 
 Yandex Фудтех И Маркет:
 ReplaceSpaces
@@ -53,12 +56,15 @@ StringCompression (популярная)
 
 Avito:
 MergeSortedArray (популярная)
-TopKFrequentElements (популярная)
+TopKFrequentElements (популярная) (потом потренироваться на куче)
 SumOfSubarrayMinimums (Сложная, пока решения нет)
+KthLargestElementInAnArray 
+Любят спрашивать: Куча (структура данных)
 
 VK:
 PointsAndSegments
 ReplaceSpaces
+SearchInRotatedSortedArray
 
 JetBrains:
 ReverseInteger
