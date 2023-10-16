@@ -1,8 +1,11 @@
+// Time: O(n^2)
+// Memory: O(n^2)
+
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board)
     {
-        auto hash = [](const std::pair<int, int>& pair)
+        auto hash = [](const std::pair<int, int>& pair) // хэш для pair!
         {
             std::size_t h1 = std::hash<decltype(pair.first)>()(pair.first);
             std::size_t h2 = std::hash<decltype(pair.second)>()(pair.second);
