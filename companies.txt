@@ -56,7 +56,7 @@ StringCompression (популярная)
 
 Avito:
 MergeSortedArray (популярная)
-TopKFrequentElements (популярная) (потом потренироваться на куче)
+TopKFrequentElements (популярная) 2 способа: count sort или map+heap
 SumOfSubarrayMinimums (Сложная, пока решения нет)
 KthLargestElementInAnArray 
 Любят спрашивать: Куча (структура данных)
