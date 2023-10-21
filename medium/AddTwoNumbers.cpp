@@ -11,6 +11,7 @@
 
  // Time: O(max(n, m))
  // Memory: O(max(n, m) + 1)->O(max(n, m))
+ // В яндексе дают в обратном порядке, нужно перевернуть
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
