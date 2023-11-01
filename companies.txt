@@ -41,7 +41,8 @@ LongestSubarrayOf1'sAfterDeletingOneElement
 
 Ozon:
 MonotonicArray
-MoveZeroes 
+MoveZeroes
+Brute-force
 
 Сбер:
 ContainsDuplicate
