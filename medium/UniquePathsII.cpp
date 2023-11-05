@@ -17,14 +17,8 @@ public:
         {
             for (int j = 1; j < M; ++j)
             {
-                if (i == 1 && j == 1)
+                if ((i == 1 && j == 1) || obstacleGrid[i - 1][j - 1] == 1)
                     continue;
-
-                if (obstacleGrid[i - 1][j - 1] == 1)
-                {
-                    chess[i][j] = 0;
-                    continue;
-                }
 
                 chess[i][j] = chess[i - 1][j] + chess[i][j - 1];
             }
