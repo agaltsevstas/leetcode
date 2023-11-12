@@ -24,13 +24,10 @@ public:
             {
                 std::pair step = {queue.front().first, queue.front().second};
 
-                if (!operation(step) || visited[step.first][step.second])
+                if (!operation(step) || grid[step.first][step.second] == '0' || visited[step.first][step.second])
                     continue;
                 
                 visited[step.first][step.second] = true;
-                if (grid[step.first][step.second] == '0')
-                    continue;
-
                 queue.emplace_back(step.first, step.second);
             }
             
