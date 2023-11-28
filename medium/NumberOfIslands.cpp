@@ -3,12 +3,12 @@
 
 class Solution
 {
-    const std::list<std::function<bool(std::pair<int, int>&)>> _operations =
+    const std::array<std::function<bool(std::pair<int, int>&)>, 4> steps
     {
-        {[this](auto &pair) { return --pair.first >= 0;}}, // Up
-        {[this](auto &pair) { return ++pair.first < I;}}, // Down
-        {[this](auto &pair) { return --pair.second >= 0;}}, // Left
-        {[this](auto &pair) { return ++pair.second < J;}}, // Right
+        [this](auto& step) { return --step.first >= 0; },
+        [this](auto& step) { return ++step.first < I;  },
+        [this](auto& step) { return --step.second >= 0; },
+        [this](auto& step) { return ++step.second < J; }
     };
     
 public:
@@ -20,15 +20,15 @@ public:
 
         while (!queue.empty())
         {
-            for (auto& operation : _operations)
+            for (auto& step : steps)
             {
-                std::pair step = {queue.front().first, queue.front().second};
+                auto q = queue.front();
 
-                if (!operation(step) || grid[step.first][step.second] == '0' || visited[step.first][step.second])
+                if (!step(q) || grid[q.first][q.second] == '0' || visited[q.first][q.second])
                     continue;
                 
-                visited[step.first][step.second] = true;
-                queue.emplace_back(step.first, step.second);
+                visited[q.first][q.second] = true;
+                queue.emplace_back(q.first, q.second);
             }
             
             queue.pop_front();

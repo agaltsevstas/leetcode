@@ -3,12 +3,12 @@
 
 class Solution
 {
-    const std::list<std::function<bool(std::pair<int, int>&)>> steps =
+    const std::array<std::function<bool(std::pair<int, int>&)>, 4> steps
     {
-        {[this](auto& pair){ return --pair.first >= 0; }}, // вверх
-        {[this](auto& pair){ return ++pair.first < I;  }}, // вниз
-        {[this](auto& pair){ return --pair.second >= 0; }}, // влево
-        {[this](auto& pair){ return ++pair.second < J; }} // вправо
+        [this](auto& step) { return --step.first >= 0; },
+        [this](auto& step) { return ++step.first < I;  },
+        [this](auto& step) { return --step.second >= 0; },
+        [this](auto& step) { return ++step.second < J; }
     };
 
     void bfs(const int i, const int j, std::vector<std::vector<bool>>& visited, std::vector<std::vector<char>>& board)
