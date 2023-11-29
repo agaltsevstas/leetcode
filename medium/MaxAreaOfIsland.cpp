@@ -38,6 +38,23 @@ public:
         return result;
     }
 
+    int dfs(const int i, const int j, std::vector<std::vector<bool>>& visited, std::vector<std::vector<int>>& grid)
+    {
+        visited[i][j] = true;
+        int result = 1;
+
+        for (const auto& step: steps)
+        {
+            auto q = std::make_pair(i, j);
+            if (!step(q) || grid[q.first][q.second] == 0 || visited[q.first][q.second])
+                continue;
+
+            result += dfs(q.first, q.second, visited, grid);
+        }
+
+        return result;
+    }
+
     int maxAreaOfIsland(std::vector<std::vector<int>>& grid)
     {
         I = (int)grid.size();
@@ -52,7 +69,8 @@ public:
                 if (grid[i][j] == 0 || visited[i][j])
                     continue;
 
-                result = std::max(bfs(i, j, visited, grid), result);
+                // result = std::max(bfs(i, j, visited, grid), result); // bfs
+                result = std::max(dfs(i, j, visited, grid), result); // dfs (быстрее, чем bfs)
             }
         }
         return result;
