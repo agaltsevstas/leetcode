@@ -1,3 +1,6 @@
+// Time: O(m * n)
+// Memory: O(m * n)
+
 class Solution
 {
     const std::array<std::function<bool(std::pair<int, int>&)>, 4> steps =
