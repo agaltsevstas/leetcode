@@ -3,24 +3,20 @@
 
 class Solution {
 public:
-    int subarraySum(vector<int>& nums, int k) {
-        auto size = nums.size();
-        if (size == 0)
-            return -1;
-
-        decltype(size) count = 0, cur_sum = 0;
-        std::map<decltype(size), decltype(size)> px;
-        px[0] = 1;
-        for (decltype(size) i = 0; i < size; ++i)
+    int subarraySum(vector<int>& nums, int k)
+    {
+        int count = 0;
+        int cur_sum = 0;
+        std::map<int, int> sum_map = {{0, 1}};
+        for (const auto& num : nums)
         {
-            cur_sum += nums[i];
+            cur_sum += num;
             auto difference = cur_sum - k;
-            if (auto it = px.find(difference); it != px.end())
-                count += px[difference];
 
-            if (auto it = px.find(cur_sum); it == px.end())
-                px[cur_sum] == 0;
-            px[cur_sum] += 1;
+            if (sum_map.contains(difference))
+                count += sum_map[difference];
+
+            sum_map[cur_sum] = 1;
         }
 
         return count;
