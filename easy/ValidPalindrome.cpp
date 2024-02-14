@@ -13,30 +13,30 @@ public:
         return std::isalpha(c) || std::isdigit(c);
     }
 
-    bool isPalindrome(string s) {
-        auto length = s.length();
-        int first_index = 0;
-        int last_index = length - 1;
+    bool isPalindrome(string s)
+    {
+        int first = 0;
+        int last = s.length() - 1;
 
-        while (first_index <= last_index)
+        while (first < last) // средний символ необязательно смотреть
         {
-            if (!isAlpha(s[first_index]))
+            if (!isAlpha(s[first]))
             {
-                ++first_index;
+                ++first;
                 continue;
             }
 
-            if (!isAlpha(s[last_index]))
+            if (!isAlpha(s[last]))
             {
-                --last_index;
+                --last;
                 continue;
             }
 
-            if (std::tolower(s[first_index]) != std::tolower(s[last_index]))
+            if (std::tolower(s[first]) != std::tolower(s[last]))
                 return false;
 
-            ++first_index;
-            --last_index;
+            ++first;
+            --last;
         }
 
         return true;
