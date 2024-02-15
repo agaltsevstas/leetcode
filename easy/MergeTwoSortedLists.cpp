@@ -1,4 +1,4 @@
-// Time: O(max(n,m)), где n - длина первого листа, m - ддлина второго листа
+// Time: O(max(n,m)), где n - длина первого листа, m - длина второго листа
 // Memory: O(1)
 
 /**
@@ -15,27 +15,30 @@ class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2)
     {
-        ListNode* begin = new ListNode(0);
-        ListNode* curr = begin;
-        ListNode* list1_curr = list1;
-        ListNode* list2_curr = list2;
+        ListNode* prev = new ListNode();
+        ListNode* cur = prev;
 
-        while (list1_curr || list2_curr)
+        while (list1 && list2)
         {
-            if ((list2_curr == nullptr) || (list1_curr && list1_curr->val <= list2_curr->val))
+            if (list1->val >= list2->val)
             {
-                curr->next = list1_curr;
-                list1_curr = list1_curr->next;
+                cur->next = list2;
+                list2 = list2->next;
             }
-            else if ((list1_curr == nullptr) || (list2_curr && list2_curr->val < list1_curr->val))
+            else
             {
-                curr->next = list2_curr;
-                list2_curr = list2_curr->next;
+                cur->next = list1;
+                list1 = list1->next;
             }
 
-            curr = curr->next;
+            cur = cur->next;
         }
 
-        return begin->next;
+        if (list1)
+            cur->next = list1;
+        else if (list2)
+            cur->next = list2;
+
+        return prev->next;
     }
 };
