@@ -3,31 +3,26 @@
 
 class Solution {
 public:
-    int maxPower(string s) {
-        auto size = s.size();
-        if (size == 0 || size == 1)
-            return size;
+    int maxPower(string s)
+    {
+        const int size = (int)s.size();
+        int prev = -1;
+        int cur = 0;
+        int next = 1;
+        int max = 1;
 
-        decltype(size) count = 1;
-        decltype(size) maxCount = 0;
-        for (decltype(size) i = 0, I = size - 1; i < I; ++i)
+        while (next < size)
         {
-            if (s[i] == s[i + 1])
-                ++count;
-            else
-            {
-                if (count > maxCount)
-                    maxCount = count;
+            if (s[cur] != s[next])
+                prev = cur;
 
-                count = 1;
-            }
+            ++cur;
+            ++next;
 
-            if (i == I - 1 && count > maxCount)
-            {
-                return count;
-            }
+            // при (next == size) выйдет из условия, "cc" - не подсчитает, поэтому обрабатываем этот случай здесь
+            max = std::max(max, next - (prev + 1)); // (prev + 1) - нужно при prev == -1 дотянуть до 0
         }
 
-        return maxCount;
+        return max;
     }
 };
