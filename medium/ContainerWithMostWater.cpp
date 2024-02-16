@@ -3,25 +3,21 @@
 
 class Solution {
 public:
-    int maxArea(vector<int>& height) {
-        int first_index = 0;
-        int last_index = height.size() - 1;
+    int maxArea(vector<int>& height)
+    {
+        int first = 0;
+        int last = (int)height.size() - 1;
         int max = 0;
 
-        while (first_index < last_index)
+        while (first < last)
         {
-            auto difference = last_index - first_index;
-            auto min_height = std::min(height[last_index], height[first_index]);
-            auto square = difference * min_height;
-            max = std::max(square, max);
-            if (height[first_index] <= height[last_index])
-            {
-                ++first_index;
-            }
+            int min = std::min(height[first], height[last]);
+            int squere = min * (last - first);
+            max = std::max(max, squere);
+            if (height[first] >= height[last])
+                --last;
             else
-            {
-                --last_index;
-            }
+                ++first;
         }
 
         return max;
