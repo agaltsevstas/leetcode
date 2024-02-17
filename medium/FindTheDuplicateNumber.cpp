@@ -3,22 +3,52 @@
 
 class Solution {
 public:
-    int findDuplicate(vector<int>& nums) {
-        auto size = nums.size();
-        for (decltype(size) i = 0; i < size;)
+#if 1
+    // Сделать из массива список и найти в нем цикл
+    int findDuplicate(vector<int>& nums)
+    {
+        int slow = nums.front();
+        int fast = nums.front();
+
+        // [1,3,4,2,2]
+        while (true)
         {
-            int n = nums[i];
-            if (i == n - 1)
-                i++;
-            else if (n == nums[n - 1])
-                return n;
-            else if (i != n - 1)
+            slow = nums[slow];       // 3, 2
+            fast = nums[nums[fast]]; // 2, 2
+            if (slow == fast)
+                break;
+        }
+
+        slow = nums.front(); // Сбрасываем в самое начало
+        while (slow != fast) // по 1 шагу оба указателя
+        {
+            slow = nums[slow]; // 3, 2
+            fast = nums[fast]; // 4, 2
+        }
+
+        return slow;
+    }
+#endif
+#if 0
+    int findDuplicate(vector<int>& nums)
+    {
+        // [1,3,4,2,2]
+        for (int i = 0, I = (int)nums.size(); i < I;)
+        {
+            int num = nums[i]; // 1, 3, 4, 2, 4, 2
+            if (i == num - 1) // 0 == 1 - 1, 1 != 3 - 1, 1 != 4 - 1, 1 == 2 - 1, 2 == 3 - 1, 3 == 4 - 1, 4 != 2 - 1
+                ++i; // 1, 2, 3, 4
+            else if (num == nums[num - 1]) 3 != 4, 4 != 2, 2 == 2
+                return num; // 2
+            else
             {
-                nums[i] = nums[n - 1];
-                nums[n - 1] = n;
+                nums[i] = nums[num - 1]; // 3 = 4, 4 = 2
+                nums[num - 1] = num;  // 4 = 3, 2 = 4
+                // [1,4,3,2,2], // [1,2,3,4,2]
             }
         }
 
         return -1;
     }
+#endif
 };
