@@ -3,22 +3,31 @@
 
 class Solution {
 public:
-    bool isValid(string s)
+#if 0
+    bool isValid(string str)
     {
         std::stack<char> stack;
-        for (const auto& c: s)
+        for (const auto& s : str)
         {
-            if (c == '(' || c == '[' || c == '{')
+            if (s == '(' ||
+                s == '{' ||
+                s == '[')
             {
-                stack.push(c);
+                stack.emplace(s);
             }
             else if (stack.empty())
             {
                 return false;
             }
-            else if (stack.top() == '(' && c == ')' ||
-                     stack.top() == '{' && c == '}' ||
-                     stack.top() == '[' && c == ']')
+            else if (s == ')' && stack.top() == '(')
+            {
+                stack.pop();
+            }
+            else if (s == '}' && stack.top() == '{')
+            {
+                stack.pop();
+            }
+            else if (s == ']' && stack.top() == '[')
             {
                 stack.pop();
             }
@@ -30,4 +39,32 @@ public:
 
         return stack.empty();
     }
+#endif
+#if 1
+bool isValid(string str)
+    {
+        std::unordered_map<char, char> braces =
+        {
+            {'(', ')'},
+            {'{', '}'},
+            {'[', ']'}
+        };
+
+        std::stack<char> stack;
+        for (const auto& s : str)
+        {
+            if (braces.contains(s))
+                stack.push(s);
+            else
+            {
+                if (stack.empty() || s != braces[stack.top()])
+                    return false;
+                
+                stack.pop();
+            }
+        }
+
+        return stack.empty();
+    }
+#endif
 };
