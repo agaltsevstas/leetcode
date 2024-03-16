@@ -2,5 +2,5 @@
 
 # Алгоритмы:
 
-[BFS](https://habr.com/ru/articles/200252/)
-[DFS](https://habr.com/ru/articles/200074/)
+[BFS](https://habr.com/ru/articles/200252/) <br>
+[DFS](https://habr.com/ru/articles/200074/) <br>

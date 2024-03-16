@@ -11,29 +11,20 @@ class Solution
 public:
     int search(vector<int>& nums, int target)
     {
-        auto size = nums.size();
-        if (size < 0)
-            return -1;
-
         int left = 0;
-        int right = size; // Важный момент! Не size - 1!
-        while (left < right - 1)
+        int right = nums.size() - 1;
+
+        while (left <= right) // Средний элемент тоже нужно пройти
         {
-            int mid = (left + right) / 2;
-            if (nums[mid] > target)
-            {
-                right = mid;
-            }
-            else if (nums[mid] < target)
-            {
-                left = mid;
-            }
-            else
-            {
+            int mid = (right + left) / 2;
+            if (nums[mid] == target)
                 return mid;
-            }
+            else if (nums[mid] < target)
+                left = mid + 1;
+            else if(nums[mid] > target)
+                right = mid - 1;
         }
 
-        return nums[left] == target ? 0 : -1;
+        return -1;
     }
 };
