@@ -5,30 +5,21 @@ class Solution {
 public:
     int mySqrt(int x)
     {
-        if (x == 1)
-            return x;
-
         int left = 0;
-        int right = x;
+        int right = x; // нельзя делить на 2 для x == 1
 
-        while (left < right - 1)
+        while (left <= right)
         {
-            int64_t mid = (left + right) / 2;
-            int64_t midSquare = mid * mid;
-            if (midSquare < x)
-            {
-                left = mid;
-            }
-            else if (midSquare > x)
-            {
-                right = mid;
-            }
-            else
-            {
+            uint64_t mid = (left + right) / 2; // Обязательно переводим в uint64_t, иначе при int*int == int
+            uint64_t sqrt = mid * mid;
+            if (sqrt == x)
                 return mid;
-            }
+            else if (sqrt < x)
+                left = mid + 1;
+            else
+                right = mid - 1;
         }
 
-        return left;
+        return right;
     }
 };
