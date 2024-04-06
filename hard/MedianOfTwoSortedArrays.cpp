@@ -1,4 +1,5 @@
 // Time: O(log(m+n)), где m - длина 1 массива, n - длина 2 массива
+// Memory: O(1)
 
 class Solution {
 public:
