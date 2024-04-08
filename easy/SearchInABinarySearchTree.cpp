@@ -1,6 +1,3 @@
-// Time: O(logn)
-// Memory: O(1)
-
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -12,6 +9,9 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+// Time: O(logn)
+// Memory: O(1)
 class Solution {
 public:
     TreeNode* searchBST(TreeNode* root, int val)

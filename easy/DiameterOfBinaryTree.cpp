@@ -11,7 +11,7 @@
  */
 
 // Time: O(logn)
-// Memory: O(n)
+// Memory: O(h), где h - высота дерева. В худшем случае h = n
 class Solution
 {
 public:
