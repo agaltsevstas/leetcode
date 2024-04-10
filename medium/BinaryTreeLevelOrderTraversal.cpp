@@ -17,28 +17,30 @@ class Solution
 {
 public:
 #if 1
-    void preOrder(const TreeNode* node, int level, std::vector<std::vector<int>>& levels)
+    void dfs(const TreeNode* node, int level, std::vector<std::vector<int>>& levels)
     {
         if (!node)
             return;
 
-        if (levels.size() < level) // [[1],[2,3],[4,5]] - при переходе слева направо может срезать с levels.size() == 3 до levels.size() == 2
-            levels.resize(level);
+        if (levels.size() == level) // [[1],[2,3],[4,5]] - при переходе слева направо может срезать с levels.size() == 3 до levels.size() == 2
+            levels.resize(level + 1);
 
-        levels[level - 1].push_back(node->val);
+        levels[level].push_back(node->val);
 
-        preOrder(node->left, level + 1, levels);
-        preOrder(node->right, level + 1, levels);
+        dfs(node->left, level + 1, levels);
+        dfs(node->right, level + 1, levels);
     }
 
+    // dfs
     std::vector<std::vector<int>> levelOrder(TreeNode* root)
     {
         std::vector<std::vector<int>> levels;
-        preOrder(root, 1, levels);
+        dfs(root, 0, levels);
         return levels;
     }
 #endif
 #if 0
+    // bfs
     std::vector<std::vector<int>> levelOrder(TreeNode* root)
     {
         if (!root)
