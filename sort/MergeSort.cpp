@@ -6,6 +6,10 @@ using namespace std;
 // Time: O(n * logn)
 // Memory: O(n)
 
+/*
+ Сортировка слиянием (merge sort) - используется принцип «разделяй и властвуй» (split and merge), заключающийся в рекурсивном разбиении массива на подмассивы (используется деление на 2) до тех пор, пока кол-во элементов в подмассиве не станет равное 1. Потом эти подмассивы склеиваются и сортируются в единый массив, для используется дополнительная память.
+ */
+
 void Merge(std::vector<int>& nums, int left, int mid, int right)
 {
     int left_point = left;
@@ -51,7 +55,7 @@ void MergeSort(std::vector<int>& nums, int left, int right)
     if (size <= 1)
         return;
 
-    int mid = (right + left) / 2; // Важный момент! ищем середина 3 и 5 - это 4
+    int mid = (right + left) / 2; // Важный момент! ищем середину 3 и 5 - это 4
     if (left < right)
     {
         MergeSort(nums, left, mid); // left
