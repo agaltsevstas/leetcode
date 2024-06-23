@@ -1,10 +1,15 @@
 #include <iostream>
 #include <string>
 
-int AtoI(std::string str)
+size_t str_len(const char *str)
+{
+    return (*str) ? str_len(++str) + 1 : 0;
+}
+
+int AtoI(const char* str)
 {
     int number = 0;
-    for (size_t i = 0, I = str.size(); i < I; ++i)
+    for (size_t i = 0, I = str_len(str); i < I; ++i)
     {
         if (str[i] < '0' || str[i] > '9')
             throw std::logic_error(std::string("Неверный аргумент: ") + str[i]);
