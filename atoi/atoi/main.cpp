@@ -3,7 +3,14 @@
 
 size_t str_len(const char *str)
 {
-    return (*str) ? str_len(++str) + 1 : 0;
+    size_t size = 0;
+    while (*str)
+    {
+        ++size;
+        ++str;
+    }
+    
+    return size;
 }
 
 int AtoI(const char* str)
