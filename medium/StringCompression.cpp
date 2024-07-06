@@ -3,42 +3,38 @@
 
 class Solution {
 public:
-    int compress(vector<char>& chars)
+    int compress(std::vector<char>& chars) // ["a","a","b","b","c","c","c"]
     {
-        const int size = chars.size();
-        int prev = 0;
-        int next = 1;
-        int count = 1;
+        if (chars.size() == 1)
+            return 1;
 
-        std::string result; // лучше не использовать vector<char>, т.к. перевести число более 1 знака -> char сложно
-        while (next <= size)
+        std::string str;
+        int count = 1;
+        for (int i = 1, I = (int)chars.size(); i < I; ++i)
         {
-            if (next == size)
+            if (chars[i - 1] != chars[i]) // a == a, a != b, b == b, b != c, c == c, c == c
             {
-                result += chars[prev];
+                str += chars[i - 1];
                 if (count > 1)
-                    result += std::to_string(count);
-                    // result += count + '0'; // число более 1 знака неверно конвертируется
-            }
-            else if (chars[prev] == chars[next])
-            {
-                ++count;
+                {
+                    str += std::to_string(count); // a2, a2b2
+                    count = 1;
+                }
             }
             else
             {
-                result += chars[prev];
-                if (count > 1)
-                    result += std::to_string(count);
-                    // result += count + '0'; // число более 1 знака неверно конвертируется
-
-                count = 1;
-                prev = next;
+                ++count; // a = 2, b = 2, c = 2, c = 3
             }
 
-            ++next;
+            if (i == I - 1)
+            {
+                str += chars[i];
+                if (count > 1)
+                    str += std::to_string(count); // a2b2c3
+            }
         }
 
-        chars = std::vector<char>(result.begin(), result.end());
+        chars = std::vector<char>(str.begin(), str.end());
         return chars.size();
     }
 };
