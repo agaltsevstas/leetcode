@@ -13,25 +13,20 @@
  */
 class Solution {
 public:
-    ListNode* reverseList(ListNode* head)
+    ListNode* reverseList(ListNode* head) // [1->2->3->4->5]
     {
-        ListNode* curr = head;
+        if (!head)
+            return nullptr;
+
+        ListNode* cur = head;
         ListNode* prev = nullptr;
 
-        while (curr != nullptr)
+        while (cur) // [1->2->3->4->5], [nullptr<-1->2->3->4->5], [nullptr<-1<-2->3->4->5], [nullptr<-1<-2<-3->4->5], [nullptr<-1<-2<-3<-4->5],  [nullptr<-1<-2<-3<-4<-5]
         {
-            ListNode* next = curr->next;
-            if (prev)
-            {
-                curr->next = prev;
-            }
-            else
-            {
-                curr->next = nullptr;
-            }
-            
-            prev = curr;
-            curr = next;
+            ListNode* next = cur->next; // 2, 3, 4, 5, nullptr
+            cur->next = prev; // 1->nullptr, 2->1, 3->2, 4->3, 5->4
+            prev = cur; // 1, 2, 3, 4, 5
+            cur = next; // 2, 3, 4, 5, nullptr
         }
 
         return prev;
