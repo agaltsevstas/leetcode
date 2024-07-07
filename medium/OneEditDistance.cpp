@@ -10,51 +10,69 @@ public:
      * @param t: a string
      * @return: true if they are both one edit distance apart or false
      */
-    bool isOneEditDistance(string &s, string &t) {
-        int size_s = s.size();
-        int size_t = t.size();
-        if (std::abs(size_s - size_t) > 1)
+    bool isOneEditDistance(string &s, string &t)
+    {
+        int str_size = (int)str.size();
+        int mask_size = (int)mask.size();
+        int s = 0;
+        int m = 0;
+        if (std::abs(str_size - mask_size) > 1)
             return false;
 
-        int s_index = 0;
-        int t_index = 0;
-
-        bool used_operation = false;
-        while (s_index <= size_s &&
-               t_index <= size_t)
+        bool canOperation = false;
+        while (m < mask_size && s < str_size)
         {
-            if (s[s_index] == t[t_index])
+            if (mask[m] == str[s])
             {
-                ++s_index;
-                ++t_index;
-            }
-            else if (used_operation)
-            {
-                used_operation = false;
-                break;
+                ++m;
+                ++s;
             }
             else
             {
-                if (s_index == size_s - 1 ||
-                    t_index == size_t - 1)
+                if (canOperation) // если уже применена операция (вставки/удаления/изменение), то это уже 2 операции, что противоречит условию
                 {
-                    used_operation = !used_operation;
-                    break;
+                    return false;
                 }
-                else if (size_s > size_t)
-                    ++s_index;
-                else if (size_t > size_s)
-                    ++t_index;
-                else
+                /*
+                 "bcde"
+                 "ccde"
+                 */
+                else if (mask_size == str_size) // изменили символ на другой символ в подстроке
                 {
-                    ++s_index;
-                    ++t_index;
+                    ++m;
+                    ++s;
+                    canOperation = true;
                 }
-                
-                used_operation = true;
+                /*
+                 "bcde"
+                 "abcde"
+                 */
+                else if (mask_size > str_size) // если добавили символ к подстроке
+                {
+                    ++m;
+                    canOperation = true;
+                }
+                /*
+                 "abcde"
+                 "bcde"
+                 */
+                else if (str_size > mask_size) // если удалили символ в строке
+                {
+                    ++s;
+                    canOperation = true;
+                }
             }
         }
 
-        return used_operation;
+        /*
+        Проверка:
+        "ad" "a"
+        */
+        if (m < mask_size)
+            canOperation = !canOperation;
+        else if (s < str_size)
+            canOperation = !canOperation;
+
+        return canOperation;
     }
 };
