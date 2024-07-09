@@ -3,24 +3,24 @@
 
 class Solution {
 public:
-    vector<int> findClosestElements(vector<int>& arr, int k, int x)
+    std::vector<int> findClosestElements(vector<int>& arr, int k, int x) // [1,1,1,10,10,10], k = 1, x = 9
     {
-        int left = -1;
-        int right = (int)arr.size() - k;
+        int left = 0;
+        int right = arr.size() - k; // Последние k символы нет смысла просматривать
 
-        while (left < right - 1)
+        while (left < right) // 0 < 5, 3 < 5, 3 < 3
         {
-            int mid = (left + right) / 2;
-            if (x - arr[mid] > arr[mid + k] - x)
+            int middle = (left + right) / 2; // 2, 4
+            if (x - arr[middle] > arr[middle + k] - x) // 9 - 1 > 10 - 1,  9 - 10 > 10 - 9
             {
-                left = mid;
+                left = middle + 1; // 3
             }
             else
             {
-                right = mid;
+                right = middle; // 3
             }
         }
 
-        return vector<int>(arr.begin() + right, arr.begin() + (right + k));
+        return std::vector<int>(arr.begin() + right, arr.begin() + right + k);
     }
 };
