@@ -3,36 +3,31 @@
 
 class Solution {
 public:
-    bool isPalindrom(string s, int first_index, int last_index)
+    bool isPalindrom(int left, int right, const std::string& s)
     {
-        while (first_index <= last_index)
+        while (left <= right)
         {
-            if (s[first_index] != s[last_index])
-            {
+            if (s[left] != s[right])
                 return false;
-            }
 
-            ++first_index;
-            --last_index;
+            ++left;
+            --right;
         }
 
         return true;
     }
 
-    bool validPalindrome(string s) {
-        auto length = s.length();
-        int first_index = 0;
-        int last_index = length - 1;
-
-        while (first_index <= last_index)
+    bool validPalindrome(string s)
+    {
+        int left = 0;
+        int right = (int)s.size() - 1;
+        while (left <= right)
         {
-            if (s[first_index] != s[last_index])
-            {
-                return isPalindrom(s, first_index + 1, last_index) || isPalindrom(s, first_index, last_index - 1);
-            }
+            if (s[left] != s[right])
+                return isPalindrom(left + 1, right, s) || isPalindrom(left, right - 1, s);
 
-            ++first_index;
-            --last_index;
+            ++left;
+            --right;
         }
 
         return true;
