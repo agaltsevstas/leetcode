@@ -18,15 +18,13 @@ public:
             }
             else if (!result.empty())
             {
-                stack.push(result);
-                result.clear();
+                stack.push(std::move(result));
             }
         }
         
         if (!result.empty())
         {
-            stack.push(result);
-            result.clear();
+            stack.push(std::move(result));
         }
         
         while (!stack.empty())
